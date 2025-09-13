@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Form</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="login-container">
+      <form id="loginForm">
+        <h2>Login</h2>
+        <div class="input-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" name="username" required />
+        </div>
+        <div class="input-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" required />
+        </div>
+        <button type="submit">Login</button>
+        <p id="error-message"></p>
+      </form>
+    </div>
+    <script>
+      document
+        .getElementById("loginForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          const username = document.getElementById("username").value;
+          const password = document.getElementById("password").value;
+          const errorMessage = document.getElementById("error-message");
+
+          // Validasi sederhana
+          if (username === "admin" && password === "12345") {
+            errorMessage.style.color = "green";
+            errorMessage.textContent = "Login berhasil!";
+            // Redirect atau aksi lain bisa ditambahkan di sini
+          } else {
+            errorMessage.style.color = "red";
+            errorMessage.textContent = "Username atau password salah!";
+          }
+        });
+    </script>
+  </body>
+</html>
